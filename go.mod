@@ -3,6 +3,7 @@ module github.com/rocklessg/go-ecommerce
 go 1.23.3
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-playground/validator/v10 v10.23.0
 	go.mongodb.org/mongo-driver v1.17.1

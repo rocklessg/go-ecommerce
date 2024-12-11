@@ -9,6 +9,8 @@ import (
 
 	"github.com/rocklessg/go-ecommerce/database"
 	"github.com/rocklessg/go-ecommerce/models"
+	generate "github.com/rocklessg/go-ecommerce/tokens"
+
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
