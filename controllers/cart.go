@@ -59,7 +59,7 @@ func (app *Application) AddToCart() gin.HandlerFunc {
 	}
 }
 
-func RemoveItem() gin.HandlerFunc {
+func (app *Application) RemoveItem() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		productQueryID := c.Query("id")
 		if productQueryID == "" {
@@ -92,7 +92,7 @@ func RemoveItem() gin.HandlerFunc {
 	}
 }
 
-func (app *Application) GetItemFromCart() gin.HandlerFunc {
+func GetItemFromCart() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		user_id := c.Query("id")
 		if user_id == "" {

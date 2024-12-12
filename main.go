@@ -25,10 +25,19 @@ func main() {
 	router.Use(middleware.Authentication())
 
 
+	// router.GET("/addtocart", app.AddToCart())
+	// router.GET("/removeitem", app.RemoveItem())
+	// router.GET("/cartcheckout", app.BuyFromCart())
+	// router.GET("/instantbuy", app.InstantBuy())
+
 	router.GET("/addtocart", app.AddToCart())
 	router.GET("/removeitem", app.RemoveItem())
+	router.GET("/listcart", controllers.GetItemFromCart())
+	router.POST("/addaddress", controllers.AddAdress())
+	router.PUT("/edithomeaddress", controllers.EditHomeAddAdress())
+	router.PUT("/editworkaddress", controllers.EditWorkAddAdress())
+	router.GET("/deleteaddresses", controllers.DeleteAdress())
 	router.GET("/cartcheckout", app.BuyFromCart())
-	router.GET("/addtocart", app.AddToCart())
 	router.GET("/instantbuy", app.InstantBuy())
 
 	log.Fatal(router.Run(":" + port))

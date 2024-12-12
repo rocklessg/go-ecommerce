@@ -11,7 +11,7 @@ import (
 )
 
 func DBSet() *mongo.Client{
-	client, err := mongo.NewClient(options.Client().ApplyURL("mongodb://localhost:27017"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://development:testpassword@localhost:27017"))
 
 	if err != nil {
 		log.Fatal(err)
@@ -21,7 +21,7 @@ func DBSet() *mongo.Client{
 
 	defer cancel()
 
-	client.connect(ctx)
+	err = client.Connect(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,12 +38,12 @@ func DBSet() *mongo.Client{
 
 var Client *mongo.Client = DBSet()
 
-func UserData(client *mongo.Client, collectionName string) *mongo.collection{
+func UserData(client *mongo.Client, collectionName string) *mongo.Collection{
 	var collection *mongo.Collection = client.Database("Ecommerce").Collection(collectionName)
 	return collection
 }
 
-func ProductData(client *mongo.Client, collectionName string) *mongo.collection{
+func ProductData(client *mongo.Client, collectionName string) *mongo.Collection{
 	var productCollection *mongo.Collection = client.Database("Ecommerce").Collection(collectionName)
 	return productCollection
 }
